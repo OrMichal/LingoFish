@@ -528,8 +528,8 @@ select option{
     font-size: 30px;
     margin-top: 20%;
     margin-left: 40%;
-    height: 200px;
-    width: 250px;
+    height: 100px;
+    width: 150px;
 
     border-color: rgba(129, 140, 248);
     box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
