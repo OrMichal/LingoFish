@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head class="waveBack"> 
+        <link rel = "stylesheet" href = "../stylesheet/styl1.css">
+        <script src="../skript1.js"></script>
+        <title> LingoFish</title>
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    </head>
+
+    <body  class="noWaveBack">
+
+        <header>
+            
+            <nav class="navBar">
+
+                <ul class="navBar-nav">
+                        <li class="nav-itemH1">
+                            <a href="./main.html" class="nav-link">
+                                <img class="logo" src="../images/background-removebg-preview.png">
+                                <h1>LingoFish</h1>
+                            </a>
+                        </li>
+                        
+                        
+
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <span class="nav-text" id="item">Domů</span>
+                            </a>
+                        </li>
+
+                        
+
+                        <li class="nav-item">
+                            <a href="../weby/learning.html" class="nav-link">
+                                <span class="nav-text" id="item">Obecné info</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="../weby/News.html" class="nav-link" >
+                                <span class="nav-text" id="item">Novinky</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <span id="item" class="nav-text"> překladač</span>
+                            <nav class="navBar3">
+                                <ul>
+                                    <li class="nav-item_translator">
+                                        <a>
+                                            <span id="item"> překladač</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item3">
+                                        <a>
+                                            <span> německy:</span><input type="text" id="slovoNaPreklad" onkeyup="prelozitDe()">
+                                            
+                                        </a>
+                                    </li>
+                                    <li class="nav-item3">
+                                        <a>
+                                            
+                                            <p id="p"></p>
+                                            <form>
+                                                <span> česky:</span><textarea id="preklad" readonly></textarea>
+                                                <div id="preklad"></div>
+                                            </form>
+                                            
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </li>
+
+                        <li class="nav-item">
+                            <nav class="navBar3_slovnik">
+                                <ul>
+                                    <li class="nav-item_slovnik">
+                                        <a>
+                                            <span id="item"> můj slovník </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item3_slovnik">
+                                        <a>
+                                            <span> německy:</span><input type="text" id="nemecky">
+                                            
+                                        </a>
+                                    </li>
+                                    <li class="nav-item3_slovnik">
+                                        <a>
+                                            
+                                            <form>
+                                                <span> česky:</span><input id="cesky"></input>
+                                                <button type="button" onclick="sendData()" id="input"> přidat slovo </button>
+                                                <textarea id="vzkaz"> </textarea>
+                                            </form>
+                                            
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </li>
+                </ul>
+            </nav>
+
+            <nav class="navBar2">
+                <ul class="navBar-nav2">
+                    <li class="arrow">
+                        <a class="arrow">
+                            <img src="../images/arrow.png" class="arrowImg">
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="navBar2-link" id="aktiv">
+                            <img src="../images/brain.png" class="navBar2-img">
+                            <span class="navBar2-text">slovní zásoba</span>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="navBar2-link" href="./gramatika.html">
+                            <img src="../images/book.png" class="navBar2-img">
+                            <span class="navBar2-text">gramatika</span>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="navBar2-link" href="./poslech.html">
+                            <img src="../images/ucho.png" class="navBar2-img">
+                            <span class="navBar2-text">poslech</span>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="navBar2-link" href="./readingDe.html">
+                            <img src="../images/kniha.png" class="navBar2-img">
+                            <span class="navBar2-text">čtení</span>
+                        </a>
+                    </li>
+                    <li class="nav-item2">
+                        <a class="navBar2-link" href="../weby/german.html">
+                            <img src="../images/kniha.png" class="navBar2-img">
+                            <span class="navBar2-text">Hlavní</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <div class="voiceChoice">
+                <nav class="navChoice">
+                    <ul class="navChoice-nav">
+                        <li class="navChoice-item">
+                            <a class="navChoice-link">
+                                <span id="item" class="aktive">Tag von Hans</span>
+                            </a>
+                        </li>
+                        <li class="navChoice-item">
+                            <a class="navChoice-link">
+                                <span id="item">Wie ich habe deine Mutter kennen gelernt</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="udio">
+              <audio controls class="audi">
+                <source src="./audio/Ein Tag im Leben von.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+
+            <div class="otazky" id="qqq">
+                <h3>1. Warum war dieser Tag für Hans besonders?</h3>
+                <input class="chch" type="checkbox" name="check" value="false">
+                <p class="hhh">Hansen Schwester ist gestorben.</p>
+                <input class="chch" type="checkbox" name="check" value="correct">
+                <p class="hhh">Dieser Tag war besonders für Hans, weil er vorhatte, den Wald hinter seinem Haus zu erkunden.</p>
+                <input class="chch" type="checkbox" name="check" value="false">
+                <p class="hhh">Andere antwort</p>
+
+                <h3>2. Was hat Hans zum Frühstück gegessen?</h3>
+                <input class="chch" type="checkbox" name="check" value="correct">
+                <p class="hhh">Hans hat ein frisches Brötchen mit Marmelade zum Frühstück gegessen.</p>
+                <input class="chch" type="checkbox" name="check" value="false">
+                <p class="hhh">Milch</p>
+                <input class="chch" type="checkbox" name="check" value="false">
+                <p class="hhh">Schinken</p>
+
+                <button type="submit" onclick="vyhodnotitHans()"> Vyhodnotit </button>
+            </div>
+
+            <div id="vysledek">
+                <p>počet správných odpovědí: <p id="pocetSprav">žádné :-(</p></p>
+            </div>
+            
+        </main>
+        
+
+        <p> </p>
+    </body>
+    
+</html>
+
+
