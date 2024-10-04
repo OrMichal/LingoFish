@@ -4,7 +4,7 @@ slovoNaPreklad = addEventListener("keyup", prelozitDe)
 var nemeckaSlova = ["sein", "sterben"];
 var SlovnikCzSlova = ["být", "umřít"];
 
-const baseUrl = "http://localhost:8080";
+const baseUrl = "http://localhost:3123";
 function prelozitDe() {
 
 

@@ -1,12 +1,12 @@
-var inputName = document.getElementById('username');
-var inputPswrd = document.getElementById('password');
+const inputName = document.getElementById('username');
+const inputPswrd = document.getElementById('password');
 
-var LgnButton = document.getElementById('logInButton');
+const LgnButton = document.getElementById('logInButton');
 
 
 const ResAPI = async (e) => {
     try {
-        const res = await fetch('http://localhost:3000/users', {
+        const res = await fetch('http://localhost:3123/users', {
             method: 'GET'
         });
 
@@ -21,4 +21,4 @@ const ResAPI = async (e) => {
     }
 };
 
-LgnButton.addEventListener('click', ResAPI);
+LgnButton.addEventListener('click', ResAPI());
