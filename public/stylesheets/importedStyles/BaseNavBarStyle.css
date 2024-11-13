@@ -1,0 +1,102 @@
+
+
+.navBar{
+    font-size: 3%;
+    position: fixed;
+    display: inline;
+    height: 6rem;
+    width: 100%;
+}
+
+.navBar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navBar-nav:hover{
+    cursor: default;
+}
+
+.navBar:hover{
+    cursor:default;
+}
+
+.nav-item{
+    transition: color 250ms;
+    margin-top: 3rem;
+    margin-right: 6rem;
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto ;
+    transition: 0.5s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav-item:hover{
+
+    transition-delay: 0.5s;
+}
+
+.nav-itemH1{
+    margin-top: 4rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    display: block;
+    align-items: center;
+    height: auto;
+    width: 200px;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+
+.nav-text{
+    text-align: center;
+}
+
+#item {
+    font-size: 2%;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: #ffedd3;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+
+}
+
+#item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-image: radial-gradient(circle at top left, #f00,#3020ff);
+    transition: 0.5s ease;
+}
+
+#item:hover {
+    transition-delay: 0.5s;
+}
+
+#item:hover::before {
+    width: 100%;
+}
+
+#item:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+}

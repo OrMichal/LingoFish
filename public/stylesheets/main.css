@@ -1,0 +1,437 @@
+@import url(../stylesheets/importedStyles/logonStyle.css);
+@import url(../stylesheets/importedStyles/footerNav.css);
+@import url(../stylesheets/importedStyles/BaseNavBarStyle.css);
+@import url(../stylesheets/importedStyles/textBoxStyle.css);
+@import url(../stylesheets/importedStyles/sideNavBarStyle.css);
+@import url(../stylesheets/importedStyles/TranslatorNavBarStyle.css);
+
+html{
+    font-family: monospace;
+}
+
+.waveBack{
+    background-image: url("../images/background2.png");
+}
+
+.noWaveBack{
+    background-color: rgb(37, 34, 34);
+}
+
+body{
+    margin: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    font-family: monospace;
+    background-blend-mode:overlay;
+    background-size:cover;
+    background-attachment:fixed;
+
+}
+
+html::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: black;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: rgb(192, 13, 192);
+    border-radius: 10px;
+    
+}
+
+
+main{
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+a{
+    display: inline;
+}
+
+
+
+.navChoice{
+    background-color: rgb(37, 34, 34);
+    margin-top: 6.25rem;
+    border-style: solid;
+    font-size: 25px;
+    position: fixed;
+    display: flex;
+    list-style: none;
+    width: 25rem;
+    height: 92vh;
+}
+
+
+
+
+.navChoice-text{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    border-width: 0px;
+    font-size: 16px;
+    color: white;
+}
+
+
+
+
+.navChoice-item{
+    margin-top: 3rem;
+    height: 5rem;
+    margin-left: 0.5rem;
+}
+
+
+.navBar2-link{
+    display: flex;
+    filter: grayscale(100%) opacity(0.9);
+    cursor: pointer;
+}
+
+.navChoice-link{
+    display: flex;
+    cursor: pointer;
+}
+
+
+.navChoice-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+}
+
+
+
+
+
+.nav-item_slovnik{
+    margin-right: 3rem;
+    margin-right: 6rem;
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 15rem ;
+}
+
+.nav-item3{
+    margin-bottom: 1rem;
+    margin-right: 6rem;
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto ;
+    display: none;
+}
+
+
+h1 {
+    transition: 100ms;
+    margin-left: 10px;
+    color: white;
+    text-align:left;
+    margin-top: 0px;
+    display: inline;
+    font-size: 50px;
+}
+
+p{
+    text-align: center;
+    font-family: verdana;
+}
+
+
+
+#texte{
+
+    color: aquamarine;
+}
+
+.vlajky{
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-bottom: 20%;
+    height: 90px;
+    width:  150px;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.vlajky:hover{
+    opacity: 70%;
+}
+
+
+
+div{
+    margin-bottom: 50%;
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+img{
+    display: inline-block;
+    align-items: center;
+}
+
+.rybka{
+    margin: 3px;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+
+.esade{
+    margin-left: 10px;
+    text-align: left;
+}
+
+a{
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+#aktiv{
+    opacity: 50%;
+}
+
+#chat-form{
+    margin-left: 40%;
+    border-radius: 19px;
+    width: 250px;
+    height: 50px;
+}
+
+#response{
+    margin-top: 40px;
+    margin-left: 37%;
+    height: 450px;
+    width: 350px;
+}
+
+textarea{
+   resize: none;
+}
+
+select{
+    border-radius: 20px;
+    margin-top: 7rem;
+    margin-left: 5rem;
+    font-size: 50px;
+    font-family: monospace;
+    height: 6rem;
+    width: 25rem;
+}
+
+select option{
+    border-radius: 35px;
+}
+
+.logo{
+    height: 60px;
+    width: 100px;
+    margin-bottom: 3rem;
+    margin-left: -3rem;
+
+}
+
+.gameSelect{
+    font-size: 18px;
+    height: 30px;
+    width: 130px;
+
+}
+
+#choice{
+    width: 75px;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+
+#hunterGame{
+    visibility: hidden;
+}
+
+#screen{
+    background-color: white;
+    height: 600px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#words{
+    font-size: 18px;
+    width: 50px;
+    height: 30px;
+    background-color: gold;
+}
+
+#startBtn{
+    scale: 1.5;
+    margin-top: 400px;
+    height: 40px;
+    width: 200px;
+}
+
+#geld{
+    background-color: goldenrod;
+    height: 50px;
+    width: 75px;
+}
+
+#cardGame{
+    color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+    margin-top: -1540px;
+    height: 700px;
+    width: 600px;
+}
+
+#card{
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 220px;
+    background-color: rgba(255, 255, 255, 0.806);
+    border-style: solid;
+    border-radius: 9px;
+    height: 300px;
+    width: 200px;
+}
+
+#card:hover{
+    cursor: pointer;
+    margin-top: -10px;
+    height: 350px;
+    width: 225px;
+    transition: 300ms;
+
+}
+
+#gBut{
+    background-color: green;
+    margin-left: 95px;
+    height: 35px;
+    width: 100px;
+    font-size: 20px;
+}
+
+#gBut:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+
+#ngBut{
+    background-color: red;
+    height: 35px;
+    width: 250px;
+    font-size: 20px;
+}
+
+#ngBut:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+
+#word{
+    margin-top: 90px;
+}
+
+.voiceChoice{
+    margin-left: 200px;
+    margin-top: -12px;
+    z-index: -2;
+}
+
+.aktive{
+    opacity: 70%;
+}
+
+.udio{
+    margin-left: 20px;
+    margin-top: -700px;
+
+}
+
+.audi{
+    width: 400px;
+}
+
+.otazky{
+    margin-top: -650px;
+    color: white;
+}
+
+.mozn{
+    height: 35px;
+    font-size: 15px;
+    width: 75px;
+}
+
+.hhh{
+    margin-top: -1%;
+    margin-left: 43%;
+    text-align: left;
+}
+
+.chch{
+    margin-left: -16%;
+}
+
+#vysledek{
+    margin-left: 300px;
+    margin-top: -600px;
+    color: white;
+    display: none;
+}
+
+h3{
+    text-align: left;
+    margin-left: 40%;
+}
+
+#aktive{
+    background-color: white;
+    color: black;
+}
+
+.storr{
+    text-align: start;
+    margin-left: 15%;
+    color: white;
+}
+
+#A1div{
+    display: none;
+}
+
+#A2div{
+    display: none;
+}
+
+.gramE{
+    color: white;
+    margin-left: 25%;
+    margin-top: -40%;
+}

@@ -1,0 +1,25 @@
+
+.texte{
+
+    margin-left: 10px;
+    color: aqua;
+    font-size: 10px;
+    width: 50px;
+}
+
+#texto{
+    font-size: 70px;
+    color: lightcyan;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    
+}
+
+.IntroDescription{
+
+    font-size: 25px;
+    color: aquamarine;
+    margin-left: 2%;
+    text-align: center;
+}

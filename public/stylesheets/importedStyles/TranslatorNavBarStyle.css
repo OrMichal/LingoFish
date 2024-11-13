@@ -1,0 +1,70 @@
+
+.navBar3{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(37, 34, 34);
+    background-color: rgb(37, 34, 34);
+    font-size: 25px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    height: 2rem;
+    transition: 400ms;
+    list-style: none;
+}
+
+.nav-item_translator{
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto ;
+}
+
+.navBar3_slovnik{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(37, 34, 34);
+    background-color: rgb(37, 34, 34);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    height: 2rem;
+    transition: 400ms;
+    list-style: none;
+}
+
+.navBar3_slovnik:hover{
+    border-color: black;
+    width: 22rem;
+    height: 22rem;
+    margin-top: 19rem;
+}
+
+.navBar3_slovnik:hover .nav-item3_slovnik{
+    display: block;
+}
+
+.nav-item3_slovnik{
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+    margin-right: 6rem;
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto ;
+    display: none;
+}
+
+.navBar3:hover{
+    border-color: black;
+    width: 22rem;
+    height: 22rem;
+    margin-top: 19rem;
+}
+
+
+.navBar3:hover .nav-item3{
+    display: block;
+}
