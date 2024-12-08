@@ -17,7 +17,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 1rem; /* Mezera mezi položkami */
@@ -37,8 +37,6 @@
     display: block; /* Zajistí zobrazení bloku */
     text-transform: uppercase; /* Velká písmena */
     color: #fff; /* Bílý text */
-    /*background-color: red; /* Červené pozadí pro testování */
-    font-size: 1rem; /* Čitelná velikost textu */
     margin: 0.5rem 1rem; /* Mezera mezi položkami */
     transition: color 250ms, background-color 250ms;
 }
@@ -55,7 +53,7 @@
     margin-top: 2%;
     display: block;
     height: auto;
-    width: 50%;
+    width: 23%;
     display: flex;
 }
 
@@ -71,7 +69,7 @@
 }
 
 #item {
-    font-size: 1rem;
+    font-size: 1.5rem;
     border: none;
     padding: 1em 1.5em;
     color: #ffedd3;

@@ -437,3 +437,51 @@ h3{
     margin-left: 25%;
     margin-top: -40%;
 }
+
+.ContainerWrapper {
+    margin-top: 50%;
+    scale: 2;
+    display: grid; /* Aktivuje grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Vytvoří dvě sloupce stejné šířky */
+    gap: 1rem; /* Mezera mezi jednotlivými buňkami */
+    justify-content: center; /* Zarovná obsah na střed */
+    padding: 2rem; /* Přidá prostor kolem celé mřížky */
+}
+
+.ContainerObj {
+    display: flex; /* Aktivuje flexbox pro obsah uvnitř každého divu */
+    flex-direction: column; /* Uspořádá obsah (obrázek a text) vertikálně */
+    align-items: center; /* Zarovná obsah na střed horizontálně */
+    background-color: #4a4a4a; /* Tmavě šedé pozadí pro každý objekt */
+    color: #dcdcdc; /* Světle šedý text pro kontrast */
+    padding: 1.5rem; /* Zvětšený prostor uvnitř každého bloku */
+    border-radius: 10px; /* Zaoblení rohů */
+    text-align: center; /* Zarovná text na střed */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Jemný stín s větší hloubkou */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Přechody pro hover efekt */
+}
+
+.ContainerObj:hover {
+    transform: translateY(-10px); /* Mírné zvednutí objektu při hoveru */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Silnější stín při hoveru */
+}
+
+.navBar2-img {
+    width: 70px; /* Šířka obrázku */
+    height: 70px; /* Výška obrázku */
+    margin-bottom: 1rem; /* Mezera pod obrázkem */
+    border-radius: 50%; /* Zaoblení obrázků do kruhu */
+    border: 2px solid #8e44ad; /* Fialový okraj kolem obrázku */
+    transition: transform 0.3s ease; /* Plynulý přechod pro změnu velikosti obrázku */
+}
+
+.navBar2-img:hover {
+    transform: scale(1.1); /* Zvětšení obrázku při hoveru */
+}
+
+.ContainerObj p {
+    font-size: 1.1rem; /* Zvýšení velikosti písma pro lepší čitelnost */
+    font-weight: 500; /* Tlustší písmo pro zvýraznění */
+    margin-top: 0.5rem; /* Mezera nad textem */
+    color: #bd93f9; /* Světle fialová barva pro text */
+}
