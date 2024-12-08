@@ -1,9 +1,7 @@
 @import url(../stylesheets/importedStyles/logonStyle.css);
-@import url(../stylesheets/importedStyles/footerNav.css);
 @import url(../stylesheets/importedStyles/BaseNavBarStyle.css);
 @import url(../stylesheets/importedStyles/textBoxStyle.css);
 @import url(../stylesheets/importedStyles/sideNavBarStyle.css);
-@import url(../stylesheets/importedStyles/TranslatorNavBarStyle.css);
 
 html{
     font-family: monospace;
@@ -18,13 +16,17 @@ html{
 }
 
 body{
-    margin: 0px;
-    margin-top: 0px;
-    padding: 0px;
     font-family: monospace;
     background-blend-mode:overlay;
     background-size:cover;
     background-attachment:fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
 
 }
 

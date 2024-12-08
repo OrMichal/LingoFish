@@ -3,13 +3,27 @@ const bcrypt = require('bcrypt');
 const { error } = require('console');
 const fs = require('fs').promises;
 const cors = require('cors');
+const mongo = require('mongoose');
+const { default: mongoose } = require('mongoose');
+const jToken = require('jsonwebtoken');
+const User = require("./models/User");
+
+
+mongo.connect('mongodb://localhost:27017/FishyDb')
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((error) => console.error("connection error: ", error));
+
+const wordShema = new mongoose.Schema({
+  word: String,
+  meaning: String
+});
+
+const word = mongoose.model("word", wordShema);
 
 const port = 3123;
 const app = express();
-const filePathDe = "./zdroje/nemeckaSlova.txt";
-const filePathCz = "./zdroje/ceskaSlova_doNemciny.txt";
+const secretKey = "your_secret_key";
 
-const users = [];
 
 app.use(express.json());
 app.use(cors());
@@ -20,83 +34,48 @@ app.use(function(req, res, next) {
     next();
 });
 
-
-function getRandomWord(words) {
-  const index = Math.floor(Math.random() * words.length);
-  return words[index];
-}
-
-
-app.get('/word', (req, res) => {
-  fs.readFile(filePathDe, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(500).send('Error reading file');
-    }
-    const words = data.split('\n').filter(Boolean);
-    const word = getRandomWord(words);
-    res.send(word);
-  });
-});
-
-app.get('/preklady', async (req, res) => {
-    try {
-        var DeWrdsSrc = await fs.readFile("./zdroje/nemeckaSlova.txt", "utf-8");
-        var DeWrds = DeWrdsSrc.split("\n");
-
-        var CzWrdsSrc = await fs.readFile("./zdroje/ceskaSlova_doNemciny.txt", "utf-8");
-        var CzWrds = CzWrdsSrc.split("\n");
-        res.json({
-
-            "firstDe": DeWrds[0],
-            "secondDe": DeWrds[1],
-
-            "firstCz": CzWrds[0],
-            "secondCz": CzWrds[1]
-            
-        });
-    } catch (error) {
-        console.error('Chyba při čtení souboru:', error.message);
-        res.status(500).json({ error: 'Chyba při načítání dat' });
-    }
-});
-
-
-app.get('/users', (req, res) => {
-    res.json({
-        user: 'ivan',
-        password: 'password1'
-    })
-});
-
-app.post('/users', async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const user = { name: req.body.name, password: hashedPassword }
-        users.push(user)
-        res.status(201).send()
-      } catch {
-        res.status(500).send()
-      }
-});
-
-app.post('/users/login', async (req, res) => {
-    const user = users.find(user => user.name === req.body.name)
-    if (user == null) {
-      return res.status(400).send('Cannot find user')
-    }
-    try {
-      if(await bcrypt.compare(req.body.password, user.password)) {
-        res.send('Success')
-      } else {
-        res.send('Not Allowed')
-      }
-    } catch {
-      res.status(500).send()
-    }
-  })
-  
-
-
 app.listen(port, () => {
     console.log('hello on port:', port);
-})
+});
+
+app.get("word", async (req, res) => {
+  try{
+    const randWd = await word.aggregate([{$sample: {size: 1} }]);
+
+    if(randWd.length > 0){
+      res.json(randWd[0]);
+    }else{
+      res.status(404).json({message: "No words found"});
+    }
+  }catch (error){
+    console.error("Error", error);
+    res.status(500).json({message: "Internal server error"});
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  console.log("Received login request:", username,",", password); // Debugging
+
+  try {
+      const user = await User.findOne({username});
+      if (!user) {
+          console.log("No user found");
+          return res.status(401).json({ message: "Invalid username or password" });
+      }
+
+      const isValid = await user.isValidPassword(password);
+      if (!isValid) {
+          console.log("Password does not match");
+          return res.status(401).json({ message: "Invalid username or password" });
+      }
+
+      const token = jToken.sign({ id: user._id }, secretKey, { expiresIn: "1h" });
+      res.json({ message: "Login successful", token });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+  }
+});
+

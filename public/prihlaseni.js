@@ -1,25 +1,34 @@
-var inputName = document.getElementById('username');
-var inputPswrd = document.getElementById('password');
+const inputName = document.getElementById('username');
+const inputPswrd = document.getElementById('password');
+const LgnButton = document.getElementById("logInButton");
 
-var LgnButton = document.getElementById('logInButton');
+LgnButton.addEventListener('click', async (event) => {
+    event.preventDefault();
 
-const ResAPI = async (e) => {
-    e.preventDefault();
+    const username = inputName.value;
+    const password = inputPswrd.value;
 
     try {
-        const res = await fetch('http://localhost:8080/users', {
-            method: 'GET'
+        const resp = await fetch("http://localhost:3123/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
         });
 
-        if (!res.ok) {
-            throw new Error('Chyba při načítání dat z API.');
+        const data = await resp.json();
+        if (resp.ok) {
+            alert("Login successful");
+            console.log("Token: ", data.token);
+
+            localStorage.setItem("authToken", data.token);
+        } else {
+            alert(data.message || "Login failed");
         }
 
-        const data = await res.json();
-        inputPswrd.value = data.name1;
     } catch (error) {
-        console.error('Chyba:', error.message);
+        console.error("Error:", error);
+        alert("An error occurred during login");
     }
-};
-
-LgnButton.addEventListener('click', ResAPI);
+});

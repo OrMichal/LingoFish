@@ -1,81 +1,106 @@
-.logon{
+/* Styling pro přihlašovací formulář */
+.logon {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    padding-top: 80px;
-    scale: 2;
+    padding: 2rem;
     border-style: solid;
-    border-radius: 50%;
     align-items: center;
-    background-image: radial-gradient(circle at top left, #f00,#3020ff);
-
-
-    font-size: 30px;
-    margin-top: 20%;
-    margin-left: 40%;
-    height: 100px;
-    width: 150px;
-
-    border-color: rgba(129, 140, 248);
-    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+    font-size: 1rem;
+    margin-top: 10%;
+    margin-left: 30%;
+    height: auto;
+    width: 100%;
+    background-color: #2a2a2a; /* Tmavší pozadí pro logon */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    scale: 1.5;
 }
 
-
-#logInButton{
-    padding: 3px;
-    margin-left: auto;
-    border-style: solid;
-    border-radius: 5px;
-    margin-right: 85px;
-    margin-top: 20px;
-    background-color: #f8fafc;
-    color: #0d0c22;
+/* Hover efekt pro logon */
+.logon:hover {
+    transform: scale(1.05);
 }
 
-#logInButton:hover{
-    opacity: 90%;
+/* Tlačítko přihlášení */
+#logInButton {
+    padding: 12px 24px;
+    margin-top: 15px;
+    background-color: #9c27b0; /* Fialová barva */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Efekt při najetí na tlačítko */
+#logInButton:hover {
+    background-color: #7b1fa2; /* Tmavší fialová */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Skupina pro inputy */
 .group {
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     display: flex;
     line-height: 30px;
     align-items: center;
     position: relative;
-    max-width: 200px;
+    max-width: 250px;
 }
-  
+
+/* Styl pro textová pole */
 .inputpsw {
     width: 100%;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 5rem;
-    padding-left: 3rem;
-    border: 2px solid transparent;
-    border-radius: 10px;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 15px;
+    border: 2px solid #555; /* Šedé okraje */
+    border-radius: 30px;
     outline: none;
-    background-color: #f8fafc;
-    color: #0d0c22;
-    transition: .5s ease;
+    background-color: #333; /* Tmavě šedé pozadí pro input */
+    color: #f1f1f1; /* Světlejší text */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-  
+
+/* Efekt pro input při zaměření */
+.inputpsw:focus {
+    border-color: #9c27b0; /* Fialová barva při zaměření */
+    background-color: #444; /* Mírně světlejší šedé pozadí */
+    box-shadow: 0 0 8px rgba(156, 39, 176, 0.3); /* Fialový stín */
+}
+
+/* Placeholder text */
 .inputpsw::placeholder {
-    color: #94a3b8;
+    color: #b0bec5; /* Světle šedý placeholder */
+    font-style: italic;
 }
-  
-.inputpsw:focus, input:hover {
-    outline: none;
-    border-color: rgba(129, 140, 248);
-    background-color: #fff;
-    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
-}
-  
+
+/* Ikona uvnitř inputu */
 .icon {
     position: absolute;
-    left: 1rem;
+    left: 15px;
     fill: none;
-    width: 1rem;
-    height: 1rem;
+    width: 18px;
+    height: 18px;
+    color: #9c27b0; /* Fialová ikona */
+}
+
+/* Přidání barevného pozadí pro body */
+body {
+    background-color: #4a148c; /* Temná fialová barva pro pozadí */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }

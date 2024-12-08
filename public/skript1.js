@@ -1,55 +1,4 @@
-var slovoNaPreklad = document.getElementById("slovoNaPreklad")
-slovoNaPreklad = addEventListener("keyup", prelozitDe)
-
-var nemeckaSlova = ["sein", "sterben"];
-var SlovnikCzSlova = ["být", "umřít"];
-
 const baseUrl = "http://localhost:3123";
-function prelozitDe() {
-
-
-  var preklad = document.getElementById("preklad");
-
-  if (slovoNaPreklad === "sein") {
-    preklad.innerHTML = "random";
-  }
-
-  for (var i = 0; i < nemeckaSlova.length; i += 1) {
-    if (slovoNaPreklad === nemeckaSlova[i]) {
-      preklad.innerHTML = ceskaSlova_doNemciny[i].toString();
-    }
-  }
-
-}
-
-
-
-/*
-var CzslovoNaPridani = document.getElementById("cesky").value;
-var DeSlovoNaPridani = document.getElementById("nemecky").value;
-*/
-
-
-function pridatSlovoDe(){
-
-  var CzslovoNaPridani = document.getElementById("cesky").value;
-  var DeSlovoNaPridani = document.getElementById("nemecky").value;
-
-  if (SlovnikDeSlova.includes(DeSlovoNaPridani)) {
-    document.getElementById("vzkaz").innerHTML = "slovo už máš ve svém slovníku";
-  } else {
-    SlovnikCzSlova.push(CzslovoNaPridani);
-    SlovnikDeSlova.push(DeSlovoNaPridani);
-    document.getElementById("vzkaz").innerHTML = "přidáno! :--: "  + SlovnikCzSlova + "\n" + SlovnikDeSlova;
-  }
-
-  CzslovoNaPridani.value = '';
-  DeSlovoNaPridani.value = '';
-
-  
-}
-
-
 
 function setHunter(){
   document.getElementById("hunterGame").style.visibility = "visible";
@@ -72,7 +21,7 @@ function showTranslat(){
 }
 
 function fetchWord() {
-      fetch('http://localhost:3000/word')
+      fetch('http://localhost:3123/word')
         .then(response => response.text())
         .then(word => {
           document.getElementById('word').innerText = word;
@@ -114,6 +63,4 @@ function setA2(){
   document.getElementById("A2div").style.display = "Block";
   document.getElementById("A1div").style.display = "none";
 }
-
-
 

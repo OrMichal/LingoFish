@@ -1,71 +1,72 @@
-
-
-.navBar{
+.navBar {
     font-size: 3%;
     position: fixed;
-    display: inline;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 6rem;
-    width: 100%;
+    background-color: #333; /* pozadí navbaru, aby text byl viditelný */
+    padding: 0 1rem; /* padding kolem navbaru pro lepší vzhled */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navBar-nav{
+.navBar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 100%;
+    justify-content: space-between; /* přidá prostor mezi položkami */
 }
 
-.navBar-nav:hover{
+.navBar-nav:hover {
     cursor: default;
 }
 
-.navBar:hover{
-    cursor:default;
-}
-
-.nav-item{
+.nav-item {
     transition: color 250ms;
-    margin-top: 3rem;
-    margin-right: 6rem;
-    display: flex;
-    align-items: center;
-    height: auto;
-    width: auto ;
+    margin-right: 6rem; /* zkontroluj, jestli není příliš velký */
+    display: block;
+
+    background-color: red;
     transition: 0.5s ease;
     cursor: pointer;
     text-transform: uppercase;
+    color: #fff; /* zajistí, že text bude bílý a dobře viditelný */
 }
 
-.nav-item:hover{
-
+.nav-item:hover {
     transition-delay: 0.5s;
+    color: #f0f0f0; /* změna barvy textu při hoveru */
 }
 
-.nav-itemH1{
-    margin-top: 4rem;
-    margin-left: 6rem;
-    margin-right: 6rem;
+.nav-itemH1 {
+    margin-left: 3rem; /* přidáno margin pro lepší umístění */
+    margin-right: 3rem;
     display: block;
-    align-items: center;
     height: auto;
     width: 200px;
+    display: flex;
 }
 
-.nav-link{
+.nav-link {
     display: flex;
     align-items: center;
     height: 3rem;
 }
 
-.nav-text{
+.nav-text {
     text-align: center;
+    color: #fff; /* zajistí, že text bude bílý a dobře viditelný */
 }
 
 #item {
     font-size: 2%;
-    background: transparent;
+    background: red;
     border: none;
     padding: 1em 1.5em;
     color: #ffedd3;
@@ -73,7 +74,6 @@
     position: relative;
     transition: 0.5s ease;
     cursor: pointer;
-
 }
 
 #item::before {
@@ -83,7 +83,7 @@
     bottom: 0;
     height: 2px;
     width: 0;
-    background-image: radial-gradient(circle at top left, #f00,#3020ff);
+    background-image: radial-gradient(circle at top left, #f00, #3020ff);
     transition: 0.5s ease;
 }
 
