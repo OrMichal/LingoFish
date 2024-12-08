@@ -64,3 +64,23 @@ function setA2(){
   document.getElementById("A1div").style.display = "none";
 }
 
+translateButt.addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const word = inputName.value;
+  const meaning = inputPswrd.value;
+
+  try {
+      const resp = await fetch("http://localhost:3123/words", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ word, meaning }),
+      });
+  } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred during request");
+  }
+});
+

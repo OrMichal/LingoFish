@@ -1,5 +1,5 @@
 
-.navBar2{
+.navBar2 {
     margin-top: 6.25rem;
     border-style: solid;
     background-color: rgb(37, 34, 34);
@@ -10,6 +10,8 @@
     height: 92vh;
     transition: 400ms;
     list-style: none;
+    left: 0; /* Umístí panel úplně vlevo */
+    top: 0; /* Ujistí se, že začíná od vrcholu stránky */
 }
 
 .navBar2-text{

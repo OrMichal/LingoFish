@@ -19,10 +19,11 @@ LgnButton.addEventListener('click', async (event) => {
 
         const data = await resp.json();
         if (resp.ok) {
-            alert("Login successful");
             console.log("Token: ", data.token);
 
             localStorage.setItem("authToken", data.token);
+            window.location.href = "./weby/main.html";
+
         } else {
             alert(data.message || "Login failed");
         }

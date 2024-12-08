@@ -64,18 +64,26 @@ app.post("/login", async (req, res) => {
           console.log("No user found");
           return res.status(401).json({ message: "Invalid username or password" });
       }
-
+      /*
       const isValid = await user.isValidPassword(password);
       if (!isValid) {
           console.log("Password does not match");
+          console.log("origo: ", user.password);
+          console.log("my: ", password);
           return res.status(401).json({ message: "Invalid username or password" });
+      }*/
+
+      if(user.password !== password){
+        console.log("wrong password");
+        return res.status(401).json({ message: "Invalid username or password" });
       }
 
-      const token = jToken.sign({ id: user._id }, secretKey, { expiresIn: "1h" });
+      const token = jToken.sign({ id: user._id, username: user.username }, secretKey, { expiresIn: "1h" });
       res.json({ message: "Login successful", token });
   } catch (err) {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
   }
 });
+
 

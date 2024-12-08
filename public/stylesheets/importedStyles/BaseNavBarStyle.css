@@ -10,34 +10,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .navBar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
+
     display: flex;
     flex-direction: row;
+    gap: 1rem; /* Mezera mezi položkami */
     align-items: center;
-    height: 100%;
-    justify-content: space-between; /* přidá prostor mezi položkami */
+    justify-content: flex-start; /* Zarovnáno vlevo */
 }
+
 
 .navBar-nav:hover {
     cursor: default;
 }
 
 .nav-item {
-    transition: color 250ms;
-    margin-right: 6rem; /* zkontroluj, jestli není příliš velký */
-    display: block;
-
-    background-color: red;
-    transition: 0.5s ease;
-    cursor: pointer;
-    text-transform: uppercase;
-    color: #fff; /* zajistí, že text bude bílý a dobře viditelný */
+    width: auto;
+    z-index: 1000; /* Viditelnost nad ostatními prvky */
+    padding: 1rem; /* Zvětší prostor kolem textu */
+    display: block; /* Zajistí zobrazení bloku */
+    text-transform: uppercase; /* Velká písmena */
+    color: #fff; /* Bílý text */
+    /*background-color: red; /* Červené pozadí pro testování */
+    font-size: 1rem; /* Čitelná velikost textu */
+    margin: 0.5rem 1rem; /* Mezera mezi položkami */
+    transition: color 250ms, background-color 250ms;
 }
+
 
 .nav-item:hover {
     transition-delay: 0.5s;
@@ -47,9 +52,10 @@
 .nav-itemH1 {
     margin-left: 3rem; /* přidáno margin pro lepší umístění */
     margin-right: 3rem;
+    margin-top: 2%;
     display: block;
     height: auto;
-    width: 200px;
+    width: 50%;
     display: flex;
 }
 
@@ -65,8 +71,7 @@
 }
 
 #item {
-    font-size: 2%;
-    background: red;
+    font-size: 1rem;
     border: none;
     padding: 1em 1.5em;
     color: #ffedd3;
