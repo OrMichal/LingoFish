@@ -1,0 +1,87 @@
+.voiceChoice{
+    margin-top: 1rem;
+}
+
+.capital{
+    font-size: 4rem;
+    margin-top: 6rem;
+    margin-right: auto;
+}
+
+/* Kontejner pro volby */
+.navChoice {
+    overflow-y: auto; /* Měkké scrollování */
+    max-height: 400px; /* Omezení výšky pro scroll */
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Poloprůhledné pozadí */
+    border-radius: 0.5rem;
+    scrollbar-width: thin; /* Užší scrollbar pro Firefox */
+    scrollbar-color: #ffedd3 transparent; /* Barva scrollbar */
+    left: 0;
+}
+
+/* Stylování scrollbar pro WebKit */
+.navChoice::-webkit-scrollbar {
+    width: 6px;
+}
+.navChoice::-webkit-scrollbar-thumb {
+    background: #ffedd3; /* Barva scrollbar */
+    border-radius: 10px;
+}
+.navChoice::-webkit-scrollbar-track {
+    background: transparent; /* Pozadí scrollbar */
+}
+
+/* Text uvnitř kontejneru */
+.navChoice-text {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Položky menu */
+.navChoice-item {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    background-color: #444;
+    border: 1px solid #888;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover efekt pro položky */
+.navChoice-item:hover {
+    background-color: #ffedd3;
+    color: #000;
+    transform: translateY(-2px); /* Mírný posun nahoru */
+}
+
+/* Odkazy uvnitř položek */
+.navChoice-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+/* Tlačítko */
+.nChItem {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #ffedd3;
+    text-transform: uppercase;
+    border: none;
+    background-color: #444;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.nChItem:hover {
+    background-color: #ffedd3;
+    color: #000;
+}
