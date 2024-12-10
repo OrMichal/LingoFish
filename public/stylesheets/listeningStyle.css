@@ -1,28 +1,10 @@
 .voiceChoice{
-    margin-top: 6rem;
-    left: 0;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    border: groove;
-    border-radius: 1rem;
-    width: 6rem;
-    transition: 200ms ease;
-
-    .nChItem{
-        display: none;
-    }
-}
-
-.voiceChoice:hover{
-    width: auto;
-    .nChItem{
-        display: block;
-    }
+    margin-top: 1rem;
 }
 
 .capital{
     font-size: 4rem;
+    margin-top: 6rem;
     margin-right: auto;
 }
 
@@ -31,11 +13,13 @@
     margin: 0;
     padding: 1rem;
     overflow-y: auto; /* Měkké scrollování */
-    height: 88vh; /* Omezení výšky pro scroll */
+    max-height: 400px; /* Omezení výšky pro scroll */
+    padding: 1rem;
     background-color: rgba(0, 0, 0, 0.8); /* Poloprůhledné pozadí */
     border-radius: 1rem;
     scrollbar-width: thin; /* Užší scrollbar pro Firefox */
     scrollbar-color: #ffedd3 transparent; /* Barva scrollbar */
+    left: 0;
 }
 
 /* Stylování scrollbar pro WebKit */
@@ -53,7 +37,6 @@
 
 /* Text uvnitř kontejneru */
 .navChoice-text {
-    margin: 1rem 0;
     text-align: center;
     font-size: 16px;
     color: #fff;
@@ -62,8 +45,8 @@
 
 /* Položky menu */
 .navChoice-item {
-    margin-top: 0.5rem;
-    padding: 1rem;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
     background-color: #444;
     border: 1px solid #888;
     border-radius: 0.5rem;
@@ -91,7 +74,6 @@
 /* Tlačítko */
 .nChItem {
     font-size: 1.5rem;
-    padding: 1rem;
     color: #ffedd3;
     text-transform: uppercase;
     border: none;
