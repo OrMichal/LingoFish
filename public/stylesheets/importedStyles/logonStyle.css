@@ -1,4 +1,4 @@
-/* Styling pro přihlašovací formulář */
+/* Styling pro přihlašovací a registrační formulář */
 .logon {
     display: flex;
     flex-direction: column;
@@ -7,29 +7,22 @@
     align-items: center;
     font-size: 1rem;
     margin-top: 10%;
-
     margin-left: auto;
     margin-right: auto;
-
     height: auto;
     width: 100%;
-    background-color: #2a2a2a; /* Tmavší pozadí pro logon */
+    background-color: #1e1e1e; /* Tmavě šedé pozadí */
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #333; /* Jemný tmavší okraj */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
-    scale: 1.5;
+    scale: 1.2;
 }
 
-/* Hover efekt pro logon */
-.logon:hover {
-    transform: scale(1.05);
-}
-
-/* Tlačítko přihlášení */
-#logInButton {
+/* Tlačítka */
+#logInButton, #registerButton {
     padding: 12px 24px;
     margin-top: 15px;
-    background-color: #9c27b0; /* Fialová barva */
     color: white;
     border: none;
     border-radius: 30px;
@@ -37,14 +30,27 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Efekt při najetí na tlačítko */
+#logInButton {
+    background-color: #007bff; /* Modrá pro přihlášení */
+}
+
 #logInButton:hover {
-    background-color: #7b1fa2; /* Tmavší fialová */
+    background-color: #0056b3; /* Tmavší modrá */
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#registerButton {
+    background-color: #28a745; /* Zelená pro registraci */
+}
+
+#registerButton:hover {
+    background-color: #1e7e34; /* Tmavší zelená */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Skupina pro inputy */
@@ -52,38 +58,41 @@
     margin-top: 15px;
     margin-bottom: 20px;
     display: flex;
+    flex-direction: row;
     line-height: 30px;
     align-items: center;
     position: relative;
-    max-width: 250px;
+    max-width: 300px;
+    
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
+    padding-right: 15px;
+    border: 1px solid #444; /* Jemný šedý okraj */
+    border-radius: 30px;
+}
+
+.group:focus-within{
+    background-color: #333; /* Mírně světlejší tmavé pozadí */
+    border-color: #007bff; /* Modrý okraj při zaměření */
+    box-shadow: 0 0 16px rgba(0, 123, 255, 0.3); /* Modrý stín */
 }
 
 /* Styl pro textová pole */
 .inputpsw {
     width: 100%;
     height: 40px;
-    padding-left: 40px;
-    padding-right: 15px;
-    border: 2px solid #555; /* Šedé okraje */
-    border-radius: 30px;
+    border: none;
     outline: none;
-    background-color: #333; /* Tmavě šedé pozadí pro input */
-    color: #f1f1f1; /* Světlejší text */
+    background-color: transparent; /* Tmavé pozadí */
+    color: #ddd; /* Světlejší text */
     font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Efekt pro input při zaměření */
-.inputpsw:focus {
-    border-color: #9c27b0; /* Fialová barva při zaměření */
-    background-color: #444; /* Mírně světlejší šedé pozadí */
-    box-shadow: 0 0 8px rgba(156, 39, 176, 0.3); /* Fialový stín */
 }
 
 /* Placeholder text */
 .inputpsw::placeholder {
-    color: #b0bec5; /* Světle šedý placeholder */
+    color: #666; /* Jemně šedý placeholder */
     font-style: italic;
 }
 
@@ -94,16 +103,36 @@
     fill: none;
     width: 18px;
     height: 18px;
-    color: #9c27b0; /* Fialová ikona */
+    color: #007bff; /* Modrá ikona */
 }
 
-/* Přidání barevného pozadí pro body */
+/* Přidání tmavého pozadí pro body */
 body {
-    background-color: #4a148c; /* Temná fialová barva pro pozadí */
+    background-color: #121212; /* Velmi tmavě šedé pozadí */
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #ddd; /* Světlejší text */
+}
+
+/* Tlačítka pro přepínání */
+.toggle-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.toggle-button:hover {
+    color: #0056b3;
+}
+
+#msg{
+    display: none;
 }

@@ -1,16 +1,18 @@
 .navBar {
-    font-size: 3%;
+    font-size: 1rem;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 6rem;
-    background-color: #333; /* pozadí navbaru, aby text byl viditelný */
-    padding: 0 1rem; /* padding kolem navbaru pro lepší vzhled */
+    background-color: #222; /* Tmavé pozadí pro navbar */
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Jemný stín pod navbar */
+    z-index: 1000; /* Nad ostatními prvky */
 }
 
 .navBar-nav {
@@ -20,63 +22,69 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 1rem; /* Mezera mezi položkami */
+    gap: 2rem; /* Mezera mezi položkami */
     align-items: center;
     justify-content: flex-start; /* Zarovnáno vlevo */
 }
 
-
-.navBar-nav:hover {
-    cursor: default;
-}
-
 .nav-item {
-    width: auto;
-    z-index: 1000; /* Viditelnost nad ostatními prvky */
-    padding: 1rem; /* Zvětší prostor kolem textu */
-    display: block; /* Zajistí zobrazení bloku */
-    text-transform: uppercase; /* Velká písmena */
-    color: #fff; /* Bílý text */
-    margin: 0.5rem 1rem; /* Mezera mezi položkami */
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #dcdcdc; /* Světle šedý text */
     transition: color 250ms, background-color 250ms;
+    border-radius: 5px; /* Jemné zaoblení */
 }
-
 
 .nav-item:hover {
-    transition-delay: 0.5s;
-    color: #f0f0f0; /* změna barvy textu při hoveru */
+    color: #ff79c6; /* Růžová při hoveru */
+    background-color: #333; /* Tmavší pozadí při hoveru */
 }
 
 .nav-itemH1 {
-    margin-left: 3rem; /* přidáno margin pro lepší umístění */
-    margin-right: 3rem;
-    margin-top: 2%;
+    margin: 0 3rem;
     display: block;
     height: auto;
-    width: 23%;
     display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #bd93f9; /* Fialová barva */
+    margin-top: 3rem;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
     height: 3rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #f8f8f2; /* Světlejší text při hoveru */
 }
 
 .nav-text {
     text-align: center;
-    color: #fff; /* zajistí, že text bude bílý a dobře viditelný */
+    color: #dcdcdc; /* Světle šedý text */
+    font-size: 1rem;
 }
 
 #item {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border: none;
-    padding: 1em 1.5em;
+    padding: 0.75em 1.5em;
     color: #ffedd3;
     text-transform: uppercase;
     position: relative;
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
     cursor: pointer;
+    background: none;
 }
 
 #item::before {
@@ -87,11 +95,11 @@
     height: 2px;
     width: 0;
     background-image: radial-gradient(circle at top left, #f00, #3020ff);
-    transition: 0.5s ease;
+    transition: width 0.5s ease;
 }
 
 #item:hover {
-    transition-delay: 0.5s;
+    color: #f8f8f2; /* Světlejší text při hoveru */
 }
 
 #item:hover::before {
@@ -99,7 +107,14 @@
 }
 
 #item:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100%;
-    transition-delay: 0.4s;
-    color: aliceblue;
+    background: rgba(255, 255, 255, 0.05); /* Jemný zvýrazňující efekt */
+    z-index: -1; /* Pod textem */
+    border-radius: 5px; /* Zaoblení efektu */
+    transition: height 0.4s ease, width 0.4s ease;
 }

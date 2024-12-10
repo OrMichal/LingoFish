@@ -86,4 +86,29 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/signup", async (req, res) => {
+  const {username, password} = req.body;
 
+  console.log("Received register request: ", username, " ", password);
+  await bcrypt.hash(password, 10);
+
+  try {
+
+    const user = await User.findOne({username});
+    /*
+    if(user.password == password){
+      return res.status(401).json({message: "This password is already using another user"});
+    }*/
+
+    if(user){
+      console.log("user", username, "already exists");
+      return res.status(401).json({message: "User with this username already exists!"});
+    }
+
+    User.insertMany([{username, password}]);
+    res.json({message: "Account created successfuly"});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({message: "Internal server error"});
+  }
+});
