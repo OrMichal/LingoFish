@@ -1,25 +1,61 @@
+aside{
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: none;
+}
+
+article{
+    margin-bottom: auto;
+}
+
 .voiceChoice{
     margin-top: 1rem;
+    right: 0;
+    background-color: black;
+    width: auto;
+    min-width: 10px;
+    height: 85vh;
+    border-radius: 1rem;
+    margin-right: auto;
+    position: relative;
+    transition: 200ms ease;
+
+    .navChoice{
+        display: none;
+    }
+}
+
+.voiceChoice:hover{
+    .navChoice{
+        display: flex;
+    }
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .capital{
-    font-size: 4rem;
+    font-size: 3rem;
     margin-top: 6rem;
     margin-right: auto;
+    margin-bottom: 0rem;
+}
+
+.navChoice-nav{
+    margin-left: -3rem;
 }
 
 /* Kontejner pro volby */
 .navChoice{
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem;
     overflow-y: auto; /* Měkké scrollování */
-    max-height: 400px; /* Omezení výšky pro scroll */
-    padding: 1rem;
+    height: 84vh; /* Omezení výšky pro scroll */
     background-color: rgba(0, 0, 0, 0.8); /* Poloprůhledné pozadí */
     border-radius: 1rem;
     scrollbar-width: thin; /* Užší scrollbar pro Firefox */
     scrollbar-color: #ffedd3 transparent; /* Barva scrollbar */
-    left: 0;
+    scroll-padding-block-start: 1rem;
 }
 
 /* Stylování scrollbar pro WebKit */
@@ -45,6 +81,7 @@
 
 /* Položky menu */
 .navChoice-item {
+    display: none;
     margin: 0.5rem 0;
     padding: 0.75rem;
     background-color: #444;
@@ -85,5 +122,24 @@
 
 .nChItem:hover {
     background-color: #ffedd3;
+    color: #000;
+}
+
+.ExerciseWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    background-color: red;
+    top: 0;
+}
+
+.ExDesc{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+
+    font-size: 2rem;
     color: #000;
 }
