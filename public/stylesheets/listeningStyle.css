@@ -16,7 +16,6 @@ aside{
     min-width: 15px;
     height: 10rem;
     border-radius: 1rem;
-    margin-right: auto;
     position: relative;
     transition: width, 0.3s ease, height 0.3s ease, opacity 0.3s ease;
     display: flex;
@@ -27,8 +26,10 @@ aside{
 .manDiv{
     display: flex;
     flex-direction: row;
-    margin-right: auto;
     width: 100%;
+    position: relative;
+    align-items: start;
+    gap: 2rem;
 }
 
 .voiceChoice::before{
@@ -58,6 +59,11 @@ aside{
     width: auto;
 }
 
+.voiceChoice:hover .navChoice {
+    opacity: 1; /* Viditelné na hover */
+    visibility: visible;
+}
+
 .navChoice {
     margin: 0;
     padding: 0.5rem;
@@ -73,10 +79,6 @@ aside{
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.voiceChoice:hover .navChoice {
-    opacity: 1; /* Viditelné na hover */
-    visibility: visible;
-}
 
 .navChoice-item {
     margin: 0.5rem 0;
@@ -158,14 +160,15 @@ aside{
     position: relative;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     width: 50%;
-    height: auto;
+    height: 40vh;
     background-color: black;
     border-style: groove;
     border-color: #444;
     border-radius: 2rem;
-    top: 0;
-    margin-left: auto;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .ExDesc{
@@ -176,4 +179,19 @@ aside{
     
     font-size: 2rem;
     color: #9333ea;
+}
+
+.ExHeading{
+    font-size: 3rem;
+    color: #d946ef;
+    width: auto;
+    height: auto;
+}
+
+.ExCont{
+    width: auto;
+    height: auto;
+    
+    font-size: 1rem;
+    color: #a855f7;
 }
