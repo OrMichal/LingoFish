@@ -1,6 +1,6 @@
 .navBar {
     font-size: 1rem;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -25,7 +25,7 @@
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .nav-item {

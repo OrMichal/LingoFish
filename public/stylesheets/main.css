@@ -13,6 +13,11 @@ html{
     background-color: rgb(37, 34, 34);
 }
 
+header{
+    width: 100%;
+    top: 0;
+    margin-bottom: auto;
+}
 body {
     font-family: monospace;
     background-blend-mode: overlay;
@@ -338,11 +343,6 @@ select option{
     margin-top: -600px;
     color: white;
     display: none;
-}
-
-h3{
-    text-align: left;
-    margin-left: 40%;
 }
 
 #aktive{
