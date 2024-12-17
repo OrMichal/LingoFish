@@ -162,7 +162,7 @@ aside{
     flex-direction: column;
     flex-shrink: 0;
     width: 50%;
-    height: auto;
+    height: 88vh;
     background-color: black;
     border-style: groove;
     border-color: #444;

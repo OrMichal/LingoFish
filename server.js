@@ -7,6 +7,9 @@ const mongo = require('mongoose');
 const { default: mongoose } = require('mongoose');
 const jToken = require('jsonwebtoken');
 const User = require("./models/User");
+const Story = require("./models/Story");
+const story = require('./models/Story');
+const e = require('express');
 
 
 mongo.connect('mongodb://localhost:27017/FishyDb')
@@ -110,5 +113,38 @@ app.post("/signup", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({message: "Internal server error"});
+  }
+});
+
+app.post("/lQuestons", async (req, res) => {
+  
+  try {
+    const { exName } = req.body;
+  
+    console.log("Received a story request", exName);
+    const storr = await story.findOne({heading: exName});
+    
+    if(!storr){
+      return res.status(404).json({message: "nenašel jsem to :("});
+    }
+    
+    console.log("found it!", storr);
+  
+    return res.status(201).json({questions: storr.questions, answers: storr.answers, allAnswers: storr.allAnswers});
+    
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/storrHeadings", async (req, res) => {
+  try {
+    const storrHeads = await story.find({}, 'heading');
+    const headings = storrHeads.map((s) => s.heading);
+
+    return res.status(200).json({ headings });
+  } catch (error) {
+    console.error("Chyba při načítání headingů:", error);
+    return res.status(500).json({ message: "Chyba serveru při načítání headingů." });
   }
 });
