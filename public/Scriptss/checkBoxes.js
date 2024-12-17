@@ -1,23 +1,22 @@
-const { FineTuningJobsPage } = require("openai/resources/fine-tuning/index.mjs");
-
 let checkBoxes = document.querySelectorAll(".answer");
-let chBoxList = []
+let chBoxList = [];
 const ExQLItems = document.querySelectorAll(".ExQLItem");
-ExQLItems.forEach((item) => {
-    item.querySelector(".QBox").querySelectorAll(".answer").forEach((answ) => {
-        chBoxList.push(answ.querySelector(".chBox"));
-    });
-});
 
-chBoxList.forEach((box) => {
-    function isSmthChecked(){
-        chBoxList.forEach((cBox) => {
-            if(cBox.checked == true){
-                return false;
+ExQLItems.forEach((item) => {
+    const checkBoxes = [];
+    item.querySelector(".QBox").querySelectorAll(".answer").forEach((answ) => {
+        checkBoxes.push(answ.querySelector(".chBox"));
+    });
+
+    checkBoxes.forEach((box) => {
+        box.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                checkBoxes.forEach((b) => {
+                    if (b !== event.target) {
+                        b.checked = false;
+                    }
+                });
             }
         });
-        return false;
-    }
-
-    
+    });
 });
