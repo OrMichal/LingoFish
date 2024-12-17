@@ -14,4 +14,3 @@ exerButts.forEach((button) => {
         exercise.querySelector(".audio").load();
     });
 });
-
