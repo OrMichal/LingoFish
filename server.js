@@ -148,3 +148,25 @@ app.post("/storrHeadings", async (req, res) => {
     return res.status(500).json({ message: "Chyba serveru při načítání headingů." });
   }
 });
+
+app.post("/answCheck", async (req, res) => {
+  try {
+    const {answs, heading} = req.body;
+    console.log("received a answer correction request", answs, heading);
+    console.log("---");
+    console.log("---");
+
+    const storr = await story.find({ heading });
+    let points = 0;
+
+    answs.forEach((answ) => {
+      if(storr.answers.includes(answ)){
+        points += 1;
+      }
+    });
+
+    return res.status(201).json({points});
+  } catch (error) {
+    return res.status(500).json({message: "internal server error while checking your answers"});
+  }
+});

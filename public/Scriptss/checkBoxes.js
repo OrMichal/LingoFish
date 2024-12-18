@@ -1,22 +1,16 @@
-let checkBoxes = document.querySelectorAll(".answer");
-let chBoxList = [];
-const ExQLItems = document.querySelectorAll(".ExQLItem");
+const questionsList = document.getElementById("questionsList");
 
-ExQLItems.forEach((item) => {
-    const checkBoxes = [];
-    item.querySelector(".QBox").querySelectorAll(".answer").forEach((answ) => {
-        checkBoxes.push(answ.querySelector(".chBox"));
-    });
+questionsList.addEventListener("change", (event) => {
+    if (event.target && event.target.classList.contains("chBox")) {
+        const parentDiv = event.target.closest(".QBox");
+        const checkBoxes = parentDiv.querySelectorAll(".chBox");
 
-    checkBoxes.forEach((box) => {
-        box.addEventListener('change', (event) => {
-            if (event.target.checked) {
-                checkBoxes.forEach((b) => {
-                    if (b !== event.target) {
-                        b.checked = false;
-                    }
-                });
-            }
-        });
-    });
+        if (event.target.checked) {
+            checkBoxes.forEach((b) => {
+                if (b !== event.target) {
+                    b.checked = false;
+                }
+            });
+        }
+    }
 });

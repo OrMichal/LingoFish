@@ -91,29 +91,54 @@ storrList.addEventListener("click", async (event) => {
 
             qDiv.appendChild(spanQ);
 
-            const divA = document.createElement("div");
+            const divAnsw = document.createElement("div");
+            divAnsw.style.display = "flex";
+            divAnsw.style.flexDirection = "column";
 
             const input = document.createElement("input");
             input.type = "checkbox";
             input.className = "chBox";
+            input.name = data.answers[data.questions.indexOf(q)];
 
             const spanA = document.createElement("span");
             spanA.className = "answerText";
             spanA.textContent = data.answers[data.questions.indexOf(q)];
 
-            divA.appendChild(input);
-            divA.appendChild(spanA);
+            divSingleAnswer = document.createElement("div");
+            divSingleAnswer.appendChild(input);
+            divSingleAnswer.appendChild(spanA);
+
+            divAnsw.appendChild(divSingleAnswer);
 
             data.allAnswers.forEach((randAnsw) => {
-                spanA.textContent = data.allAnswers[data.questions.indexOf(q)];
-                //dodělat!
-                divA.appendChild(input);
-                divA.appendChild(spanA);
+                
+                const spanAA = document.createElement("span");
+                const divSingleAnswerr = document.createElement("div");
+
+                spanAA.textContent = randAnsw;
+                spanAA.className = "answerText";
+
+                const inputt = document.createElement("input");
+                inputt.type = "checkbox";
+                inputt.className = "chBox";
+                input.name = randAnsw;
+
+                divSingleAnswerr.appendChild(inputt);
+                divSingleAnswerr.appendChild(spanAA);
+
+                divAnsw.appendChild(divSingleAnswerr);
             });
 
-            qDiv.appendChild(divA);
+            qDiv.appendChild(divAnsw);
 
+            
             exerDiv.appendChild(qDiv);
         });
+
+        const answSubmitButton = document.createElement("button");
+        answSubmitButton.type = "button";
+        answSubmitButton.className = "submitAnswsButton";
+        answSubmitButton.textContent = "Vyhodnotit";
+        exerDiv.appendChild(answSubmitButton);
     }
 });

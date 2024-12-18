@@ -272,4 +272,33 @@ aside{
 
 .answerText{
     font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.submitAnswsButton {
+    width: auto;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #5a00cc;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 1rem auto;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.submitAnswsButton:hover {
+    background-color: #8400ff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.submitAnswsButton:active {
+    background-color: #4e00b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
 }
