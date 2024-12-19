@@ -9,7 +9,7 @@ const jToken = require('jsonwebtoken');
 const User = require("./models/User");
 const Story = require("./models/Story");
 const story = require('./models/Story');
-const e = require('express');
+const Grammar = require("./models/Grammar");
 
 
 mongo.connect('mongodb://localhost:27017/FishyDb')
@@ -202,4 +202,34 @@ app.post("/answCheck", async (req, res) => {
     console.error("Error while checking answers:", error);
     return res.status(500).json({ message: "Internal server error while checking your answers" });
   }
+});
+
+app.post("/grammarLvls", async (req, res) => {
+  try {
+    const lvlArr = await Grammar.distinct("level");
+    return res.status(201).json({lvlArr});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/getGrammar", async (req, res) => {
+  try {
+    const {level} = req.body;
+    const gramArr = await Grammar.find({level}, {point: 1});
+    let resultArr = [];
+    gramArr.forEach((g) => {
+      resultArr.push(g.point);
+    });
+    console.log(resultArr);
+    res.status(201).json({resultArr});
+  } catch (error) {
+    console.log("ups", error);
+  }
+});
+
+app.post("/getGramPt", async (req, res) => {
+  const {gram} = req.body;
+
+  const reslt = await 
 });

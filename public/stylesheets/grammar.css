@@ -1,0 +1,122 @@
+.grammarMain{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.grammarChoice{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.gramOpt {
+    font-size: 2rem;  /* Velikost písma pro čitelnost */
+    display: none;  /* Změněno na block pro zobrazení, pokud bude potřeba */
+    margin-top: 1rem;  /* Mezery nahoře pro lepší rozmístění */
+    margin-left: auto;  /* Auto margin pro vycentrování */
+    margin-right: auto;  /* Auto margin pro vycentrování */
+    width: 100%;  /* Zajištění, že element bude šířkově vyplňovat dostupný prostor */
+    max-width: 500px;  /* Maximální šířka pro omezení velikosti */
+    padding: 1rem;  /* Vnitřní odsazení pro větší prostor kolem textu */
+    background-color: #f3f3f3;  /* Světle šedé pozadí pro lepší kontrast */
+    border: 2px solid #d946ef;  /* Okraj pro zvýraznění */
+    border-radius: 0.5rem;  /* Zaoblení rohů pro modernější vzhled */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Jemný stín pro hloubku */
+    transition: all 0.3s ease;  /* Plynulý přechod pro interaktivní efekty */
+}
+
+.gramOpt:hover {
+    background-color: #d946ef;  /* Změna barvy pozadí při najetí myší */
+    color: #ffffff;  /* Změna barvy textu při najetí myší */
+    cursor: pointer;  /* Změna kurzoru na pointer pro indikaci interaktivity */
+}
+
+.gramOpt:focus {
+    outline: none;  /* Odstranění defaultního ohraničení při fokusu */
+    box-shadow: 0 0 5px rgba(57, 162, 255, 0.6);  /* Zvýraznění elementu při fokusu */
+}
+
+
+.grammarPSelection{
+    width: auto;
+    height: auto;
+    background-color: black;
+    color: aliceblue;
+}
+
+.navChoice{
+    background-color: black;
+    color: aliceblue;
+}
+.gramChoice::before{
+    content: "Gramatika";
+    margin-left: auto;
+    font-size: 4rem; /* Velikost textu */
+    font-family: 'Poppins', sans-serif; /* Moderní písmo */
+    text-transform: uppercase; /* Velká písmena */
+    text-align: center; /* Centrovaný text */
+    background: linear-gradient(90deg, #a855f7, #d946ef, #9333ea); /* Fialový gradient */
+    -webkit-background-clip: text; /* Výplň textu gradientem */
+    -webkit-text-fill-color: transparent; /* Skrytí pevné barvy */
+    text-shadow: 0 0 10px rgba(148, 0, 211, 0.8), 
+                 0 0 20px rgba(138, 43, 226, 0.5); /* Jemný neonový efekt */
+    margin-top: 0rem;
+    margin-right: auto; /* Zarovnání na střed */
+    margin-bottom: 0rem; /* Žádná mezera dole */
+    padding: 1rem; /* Vnitřní odsazení */
+    border-bottom: 3px solid rgba(148, 0, 211, 0.5); /* Stylové fialové podtržení */
+    letter-spacing: 2px; /* Větší mezery mezi písmeny */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.gramChoice:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 85vh;
+    width: auto;
+    .gramOpt{
+        display: block;
+    }
+}
+
+.gramChoice:hover .navChoice {
+    opacity: 1; /* Viditelné na hover */
+    visibility: visible;
+}
+
+.gramChoice {
+    margin-top: 1rem;
+    right: 0;
+    background-color: black;
+    width: auto;
+    min-width: 15px;
+    height: 10rem;
+    border-radius: 1rem;
+    position: relative;
+    transition: width, 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.gramScreen{
+    width: 60%;
+    height: 80vh;
+    background-color: black;
+    color: #9333ea;
+    display: flex;
+    flex-direction: column;
+}
+
+.gramHeading{
+    color: #9333ea;
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gramDiv{
+    width: auto;
+}

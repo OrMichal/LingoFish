@@ -1,152 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head class="noWaveBack"> 
-        <link rel = "stylesheet" href = "../stylesheet/styl1.css">
-        <script src="../skript1.js"></script>
+        <link rel = "stylesheet" href = "../stylesheets/main.css">
+        <link rel="stylesheet" href="../stylesheets/importedStyles/BaseNavBarStyle.css">
+        <link rel="stylesheet" href="../stylesheets/grammar.css">
         <title> LingoFish</title>
         <meta name="viewport" content="width = device-width, initial-scale = 1.0">
     </head>
-
+    
     <body class="noWaveBack">
-
         <header>
-            
             <nav class="navBar">
-
                 <ul class="navBar-nav">
                     <li class="nav-itemH1">
-                        <a href="./index.html" class="nav-link">
-                            <img src="../images/background-removebg-preview.png" class="logo">
+                        <a href="./main.html" class="nav-link">
+                            <img class="logo" src="../images/background-removebg-preview.png">
                             <h1>LingoFish</h1>
                         </a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <span class="nav-text" id="item">Domů</span>
+                        </a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="../index.html" class="nav-link">
-                                <span id="item" class="nav-text">Domů</span>
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="../weby/learning.html" class="nav-link">
+                            <span class="nav-text" id="item">Obecné info</span>
+                        </a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="../weby/learning.html" class="nav-link">
-                                <span id="item" class="nav-text">Obecné info</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="../weby/News.html" class="nav-link" >
-                                <span id="item" class="nav-text">Novinky</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <nav class="navBar3">
-                                <ul>
-                                    <li class="nav-item_translator">
-                                        <a>
-                                            <span> překladač</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item3">
-                                        <a>
-                                            <span> německy:</span><input type="text" id="slovoNaPreklad" onkeyup="prelozitDe()">
-                                            
-                                        </a>
-                                    </li>
-                                    <li class="nav-item3">
-                                        <a>
-                                            
-                                            <p id="p"></p>
-                                            <form method="post" action="../scripts/skrypt.php">
-                                                <span> česky:</span><textarea id="preklad" readonly></textarea>
-                                                <div id="preklad"></div>
-                                            </form>
-                                            
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </li>
-                </ul>
-            </nav>
-
-            <nav class="navBar2">
-                <ul class="navBar-nav2">
-                    <li class="arrow">
-                        <a class="arrow">
-                            <img src="../images/arrow.png" class="arrowImg">
-                        </a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="navBar2-link" href="slovniZasoba.html">
-                            <img src="../images/brain.png" class="navBar2-img">
-                            <span class="navBar2-text">slovní zásoba</span>
-                        </a>
-                    </li>
-                    <li class="nav-item2" id="aktiv">
-                        <a class="navBar2-link">
-                            <img src="../images/book.png" class="navBar2-img">
-                            <span class="navBar2-text">gramatika</span>
-                        </a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="navBar2-link" href="poslech.html">
-                            <img src="../images/ucho.png" class="navBar2-img">
-                            <span class="navBar2-text">poslech</span>
-                        </a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="navBar2-link" href="readingDe.html">
-                            <img src="../images/kniha.png" class="navBar2-img">
-                            <span class="navBar2-text">čtení</span>
-                        </a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="navBar2-link" href="../weby/german.html">
-                            <img src="../images/kniha.png" class="navBar2-img">
-                            <span class="navBar2-text">Hlavní</span>
+                    <li class="nav-item">
+                        <a href="../weby/News.html" class="nav-link" >
+                            <span class="nav-text" id="item">Novinky</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-
         </header>
-        <main>
-           
-            <div class="voiceChoice">
-                <nav class="navChoice">
-                    <ul class="navChoice-nav">
-                        <li class="navChoice-item">
-                            <a class="navChoice-link" onclick="setA1()">
-                                <span id="item">A1</span>
-                            </a>
-                        </li>
-                        <li class="navChoice-item">
-                            <a class="navChoice-link" onclick="setA2()">
-                                <span id="item">A2</span>
-                            </a>
-                        </li>
+
+        <div class="grammarMain" id="main">
+            
+            <div class="gramChoice" id="gPSelection">
+                <div class="grammarChoice">
+                    <select class="gramOpt" id="gramSelect">
                         
-                    </ul>
+                    </select>
+                </div>
+                <nav class="navChoice">
+                    <ul class="navChoice-nav" id="grammarList"></ul>
                 </nav>
             </div>
 
-            <div id="A1div">
-                <p class="gramE"> there will be A1 grammar</p>
+            <div class="gramScreen">
+                <div class="gramHeading">
+                    <p id="head">Gramatika</p>
+                </div>
+
+                <div class="gramDiv" id="gramDivv">
+
+                </div>
             </div>
-
-            <div id="A2div">
-                <p class="gramE"> there will be A2 grammar</p>
-            </div>
-
-        </main>
-        
-
-        
-
-        
-        <p> </p>
+        </div>
     </body>
     
+    <script src="../skript1.js"></script>
+    <script src="../Scriptss/grammar.js"></script>
 </html>
 
 
