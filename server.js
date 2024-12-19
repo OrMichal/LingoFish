@@ -137,9 +137,32 @@ app.post("/lQuestons", async (req, res) => {
   }
 });
 
+app.post("/rQuestons", async (req, res) => {
+  
+  try {
+    const { exName } = req.body;
+  
+    console.log("Received a story request", exName);
+    const storr = await story.findOne({heading: exName});
+    
+    if(!storr){
+      return res.status(404).json({message: "nenašel jsem to :("});
+    }
+    
+    console.log("found it!", storr);
+  
+    return res.status(201).json({questions: storr.questions, answers: storr.answers, allAnswers: storr.allAnswers, content: storr.content});
+    
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.post("/storrHeadings", async (req, res) => {
   try {
-    const storrHeads = await story.find({}, 'heading');
+    const {querr} = req.body;
+    const storrHeads = await story.find({type: querr}, 'heading');
+    console.log(storrHeads);
     const headings = storrHeads.map((s) => s.heading);
 
     return res.status(200).json({ headings });
@@ -151,22 +174,32 @@ app.post("/storrHeadings", async (req, res) => {
 
 app.post("/answCheck", async (req, res) => {
   try {
-    const {answs, heading} = req.body;
-    console.log("received a answer correction request", answs, heading);
-    console.log("---");
+    const { answs, heading } = req.body;
+
+    console.log("Received a answer correction request", answs, heading);
     console.log("---");
 
-    const storr = await story.find({ heading });
+    if (!Array.isArray(answs)) {
+      return res.status(400).json({ message: "Odpovědi musí být pole." });
+    }
+
+    const storr = await story.findOne({ heading });
+
+    if (!storr) {
+      return res.status(404).json({ message: "Příběh nebyl nalezen." });
+    }
+
     let points = 0;
 
     answs.forEach((answ) => {
-      if(storr.answers.includes(answ)){
+      if (storr.answers.includes(answ)) {
         points += 1;
       }
     });
 
-    return res.status(201).json({points});
+    return res.status(201).json({ points, answse: storr.answers });
   } catch (error) {
-    return res.status(500).json({message: "internal server error while checking your answers"});
+    console.error("Error while checking answers:", error);
+    return res.status(500).json({ message: "Internal server error while checking your answers" });
   }
 });

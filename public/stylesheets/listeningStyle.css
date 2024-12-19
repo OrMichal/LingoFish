@@ -168,26 +168,34 @@ aside{
     border-color: #444;
     border-radius: 2rem;
     flex-shrink: 0;
-    overflow: hidden;
-    gap: 1rem;
+    overflow: scroll;
 }
 
-.ExDesc{
+.ExDesc {
     display: flex;
     flex-direction: column;
-    width: auto;
-    height: auto;
-    
-    font-size: 2rem;
+    align-items: flex-start;  /* Zarovnání na začátek pro lepší vzhled */
+    justify-content: center;  /* Vertikální centrování pro lepší rozložení */
+    padding: 2rem;  /* Přidání vnitřního odsazení pro větší prostor */
+    font-size: 6rem;
     color: #9333ea;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);  /* Jemný stín pro lepší čitelnost a hloubku */
+    max-width: 100%;  /* Zajištění, že text se vejde na šířku obrazovky */
+    line-height: 1.2;  /* Větší řádkování pro lepší čitelnost */
+    word-wrap: break-word;  /* Zajištění, že text se správně zabalí, pokud je příliš dlouhý */
 }
 
-.ExHeading{
-    font-size: 3rem;
+.ExHeading {
+    font-size: 3.5rem;  /* Mírně větší velikost písma pro lepší kontrast s popisem */
     color: #d946ef;
-    width: auto;
-    height: auto;
+    font-weight: 600;  /* Tučnější písmo pro důraz */
+    margin-top: 1rem;  /* Přidání mezery nad nadpisem */
+    margin-bottom: 1.5rem;  /* Větší mezera pod nadpisem pro oddělení od textu */
+    text-transform: uppercase;  /* Velká písmena pro moderní vzhled */
+    letter-spacing: 2px;  /* Rozestupy mezi písmeny pro lepší vzhled */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);  /* Jemný stín pro zvýraznění nadpisu */
 }
+
 
 .ExCont{
     width: auto;
@@ -302,3 +310,27 @@ aside{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
 }
+
+/* ---------------Reading part--------------------------------------------------------------*/
+
+.contentDivv {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.1rem;  /* Mírně větší písmo pro lepší čitelnost */
+    line-height: 1.6;  /* Větší řádkování pro lepší čitelnost */
+    padding: 1.5rem;  /* Přidání vnitřního odsazení pro lepší prostor kolem textu */
+    border: 2px solid #8400ff;  /* Silnější okraj pro výraznější vzhled */
+    border-radius: 1rem;  /* Menší zaoblení pro modernější vzhled */
+    background-color: #f9f9f9;  /* Světle šedé pozadí pro kontrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Jemný stín pro lepší oddělení od pozadí */
+    max-width: auto;  /* Maximální šířka pro lepší zobrazení na širokých obrazovkách */
+}
+
+.textP {
+    margin-left: 1rem;  /* Udržení odsazení pro text */
+    margin-bottom: 1rem;  /* Větší mezera mezi odstavci */
+    text-align: justify;  /* Zarovnání textu do bloku pro rovnoměrné okraje */
+}
+

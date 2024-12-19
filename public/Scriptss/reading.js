@@ -1,6 +1,7 @@
 window.onload = async () => {
+    document.getElementById("contDiv").style.display ="none";
     try {
-        const querr = "poslech";
+        const querr = "čtení";
         const resp = await fetch("http://localhost:3123/storrHeadings", {
             method: "POST",
             headers: {
@@ -49,18 +50,14 @@ const storrList = document.getElementById("storiesList");
 
 storrList.addEventListener("click", async (event) => {
     if (event.target && event.target.matches("li#exerButt a span.nChItem")) {
+        document.getElementById("contDiv").style.display ="flex";
         const exName = event.target.textContent;
         const exercise = document.getElementById("exerciseDiv");
         const heading = document.getElementById("exerHead");
-        const audioPlayer = document.getElementById("audio");
+        const contentDiv = document.getElementById("contDiv");
 
         heading.innerHTML = exName;
-        exercise.querySelector(".audio").querySelector(".source").src = "../audio/" + exName + ".mp3";
-        audioPlayer.style.display = "flex";
-        document.getElementById("questons").style.display = "block";
-        exercise.querySelector(".audio").load();
-
-        const resp = await fetch("http://localhost:3123/lQuestons", {
+        const resp = await fetch("http://localhost:3123/rQuestons", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -74,6 +71,17 @@ storrList.addEventListener("click", async (event) => {
         }
 
         const data = await resp.json();
+
+        const exerCont = document.getElementById("contDiv");
+        const textArr = data.content.split(';');
+        textArr.forEach((t) => {
+            const p = document.createElement("p");
+            p.textContent = t;
+            p.className = "textP"
+
+            exerCont.appendChild(p);
+        });
+
         const exerDiv = document.getElementById("questionsList");
         exerDiv.innerHTML = "";
 

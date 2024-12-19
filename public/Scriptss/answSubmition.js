@@ -20,22 +20,17 @@ ExQList.addEventListener("click", (event) => {
 
 // Listener pro tlačítko odeslání odpovědí
 ExQList.addEventListener("click", async (event) => {
-    console.log("kliknuto na tlačítko");
-
-
     if (event.target && event.target.classList.contains("submitAnswsButton")) {
-        console.log("submit tlačítko detekováno");
         const allQBoxes = document.querySelectorAll(".QBox");
         const heading = document.getElementById("exerHead").textContent;
 
         let answs = [];
         allQBoxes.forEach((qBox) => {
-            // Najdi zaškrtnutý checkbox v aktuálním QBox
             const selectedBox = qBox.querySelector(".chBox:checked");
             if (selectedBox) {
-                answs.push(selectedBox.name); // Přidej jméno odpovědi
+                answs.push(selectedBox.name); // Používám name pro identifikaci odpovědi
             } else {
-                answs.push(null); // Pokud nic není vybrané, přidej null
+                answs.push(null); // Pokud není odpověď vybrána
             }
         });
 
@@ -47,13 +42,32 @@ ExQList.addEventListener("click", async (event) => {
                 },
                 body: JSON.stringify({ answs, heading }),
             });
-            
+
             if (!resp.ok) {
                 return alert("Chyba serveru při vyhodnocování odpovědí.");
-            }            
+            }
 
             const result = await resp.json();
-            return alert(`Gratuluji, získal jsi ${result.points} bodů.`);
+
+            // Změna barev odpovědí na základě výsledků
+            allQBoxes.forEach((qBox, index) => {
+                const checkBoxes = qBox.querySelectorAll(".chBox");
+
+                checkBoxes.forEach((box) => {
+                    const isChecked = box.checked;
+                    const isCorrect = result.answse.includes(box.name);
+
+                    if (isCorrect && isChecked) {
+                        box.parentElement.style.backgroundColor = "green"; // Správná odpověď
+                    } else if (isChecked) {
+                        box.parentElement.style.backgroundColor = "red"; // Špatná odpověď
+                    } else {
+                        box.parentElement.style.backgroundColor = ""; // Reset barvy
+                    }
+                });
+            });
+
+            ExQList.querySelector(".resultMsg").textContent ="Gratuluji, počet správných odpovědí: " +  result.points;
         } catch (error) {
             console.error(error);
             alert("Nastala chyba při komunikaci se serverem.");
