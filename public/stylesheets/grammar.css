@@ -13,6 +13,7 @@
 
 .gramOpt {
     font-size: 2rem;  /* Velikost písma pro čitelnost */
+    appearance: auto;
     display: none;  /* Změněno na block pro zobrazení, pokud bude potřeba */
     margin-top: 1rem;  /* Mezery nahoře pro lepší rozmístění */
     margin-left: auto;  /* Auto margin pro vycentrování */
@@ -119,4 +120,9 @@
 
 .gramDiv{
     width: auto;
+}
+
+.gramExpl{
+    width: auto;
+    color: #d946ef;
 }

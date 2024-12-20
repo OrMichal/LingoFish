@@ -229,7 +229,17 @@ app.post("/getGrammar", async (req, res) => {
 });
 
 app.post("/getGramPt", async (req, res) => {
-  const {gram} = req.body;
-
-  const reslt = await 
+  try {
+    const { gram } = req.body;
+    console.log("received grammar: ", gram);
+  
+    const querr = await Grammar.findOne({point: gram}, {description: 1, _id: 0});
+    console.log(querr);
+    const result = querr.description;
+    console.log(result);
+    return res.status(201).json({result});
+  } catch (error) {
+    console.log("ups", error);
+  }
 });
+

@@ -49,19 +49,27 @@ selection.addEventListener("click", async (event) => {
 
 const grammarUl = document.getElementById("grammarList");
 grammarUl.addEventListener("click", async (event) => {
-    if(event.target && event.target.matches(li)){
-        const heading = document.getElementById("head");
-        const gramDiv = document.getElementById("gramdivv");
+    if(event.target && event.target.matches("li")){
+        const headin = document.getElementById("head");
+        const gramDiv = document.getElementById("gramDivv");
         const gram = event.target.textContent;
-
+        console.log(gram);
         const resp = await fetch("http://localhost:3123/getGramPt", {
             method: "POST",
-            heading: {
+            headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({gram}),
         });
 
-        
+        const data = await resp.json();
+        headin.innerHTML = gram;
+        const explDiv = gramDiv.querySelector(".gramExpl");
+        explDiv.innerHTML = " ";
+        data.result.forEach((t) => {
+            const p = document.createElement("p");
+            p.textContent = t;
+            explDiv.appendChild(p);
+        });
     }
 });

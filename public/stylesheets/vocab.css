@@ -1,0 +1,21 @@
+.vManDiv{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+}
+
+.gameTypeUl{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.gameChoiceDiv{
+    width: 100%;
+}
+
+.gameLi{
+    width: auto;
+    height: 5rem;
+}
