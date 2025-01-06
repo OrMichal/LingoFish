@@ -10,18 +10,12 @@ const User = require("./models/User");
 const Story = require("./models/Story");
 const story = require('./models/Story');
 const Grammar = require("./models/Grammar");
+const Word = require("./models/Word");
 
 
 mongo.connect('mongodb://localhost:27017/FishyDb')
     .then(() => console.log("Connected to MongoDB"))
     .catch((error) => console.error("connection error: ", error));
-
-const wordShema = new mongoose.Schema({
-  word: String,
-  meaning: String
-});
-
-const word = mongoose.model("word", wordShema);
 
 const port = 3123;
 const app = express();
@@ -39,21 +33,6 @@ app.use(function(req, res, next) {
 
 app.listen(port, () => {
     console.log('hello on port:', port);
-});
-
-app.get("word", async (req, res) => {
-  try{
-    const randWd = await word.aggregate([{$sample: {size: 1} }]);
-
-    if(randWd.length > 0){
-      res.json(randWd[0]);
-    }else{
-      res.status(404).json({message: "No words found"});
-    }
-  }catch (error){
-    console.error("Error", error);
-    res.status(500).json({message: "Internal server error"});
-  }
 });
 
 app.post("/login", async (req, res) => {
@@ -243,3 +222,12 @@ app.post("/getGramPt", async (req, res) => {
   }
 });
 
+app.post("/getRandWord", async(req, res) => {
+  try {
+    const wrd = await Word.aggregate([{$sample: {size: 1}}])
+    const word = wrd[0].word;
+    return res.status(201).json({word});
+  } catch (error) {
+    console.log(error);
+  }
+}); 

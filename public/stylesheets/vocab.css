@@ -1,21 +1,47 @@
 .vManDiv{
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: auto;
+    margin-right: auto;
 }
 
 .gameTypeUl{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    list-style: none;
 }
 
 .gameChoiceDiv{
-    width: 100%;
+    width: auto;
+    background-color: #444;
 }
 
 .gameLi{
     width: auto;
-    height: 5rem;
+    font-size: 2rem;
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.gameContainer{
+    width: auto;
+    height: auto;
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gCard{
+    background-color: white;
+    width: 40rem;
+    height: 50rem;
+    font-size: 2rem;
+    border-radius: 3rem;
+    border-style: solid;
+}
+
+.gCardWord{
+    margin: 1.5rem;
+    margin-top: 30%;
+    padding: 2rem;
 }
