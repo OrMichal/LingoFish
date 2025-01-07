@@ -231,3 +231,15 @@ app.post("/getRandWord", async(req, res) => {
     console.log(error);
   }
 }); 
+
+app.post("/getTranslation", async (req, res) => {
+  try {
+    const { word } = req.body;
+    const querr = await Word.findOne({word});
+    const translation = querr.meaning;
+    console.log(translation);
+    return res.status(201).json({translation});
+  } catch (error) {
+    
+  }
+});
